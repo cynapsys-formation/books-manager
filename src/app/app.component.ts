@@ -13,7 +13,7 @@ export class AppComponent {
       return a + 4;
     };
 
-    const y = (a: number) => a + 4;
-    const z: number = y(5);
+    const y = (a: number) => a + 5;
+    const z: number = y(6);
   }
 }
