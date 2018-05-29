@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "node_modules/.bin/ng serve",
     "build": "node_modules/.bin/ng build --prod",
+    "prod": "node_modules/.bin/ng serve --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
