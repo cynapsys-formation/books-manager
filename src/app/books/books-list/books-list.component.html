@@ -1,0 +1,10 @@
+<p>
+  books-list works!
+</p>
+<ul>
+  <li *ngFor="let book of books; let i=index">
+   <!-- <span> {{i+1}} - {{book.title}} - {{book.year}}</span>
+    <button mat-button  (click)="onBookSelect(book)">Click me!</button> -->
+    <cyn-book-details [book]="book" [index]="i+1" (selectedBookEvent)="onSelectedBookEvent($event)"></cyn-book-details>
+  </li>
+</ul>

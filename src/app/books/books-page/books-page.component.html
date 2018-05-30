@@ -1,3 +1,5 @@
 <p>
   books-page works!
 </p>
+<cyn-books-list [books]="books" (selectedBookEvent)="onSelectedBookEvent($event)"></cyn-books-list>
+<p>Selected Book: {{selectedBook | json}}</p>
