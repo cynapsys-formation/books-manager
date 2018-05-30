@@ -5,7 +5,8 @@ import { BooksRoutingModule } from './books-routing.module';
 import { BooksPageComponent } from './books-page/books-page.component';
 import { BooksListComponent } from './books-list/books-list.component';
 
-import {MatButtonModule, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatIconModule} from '@angular/material';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
   imports: [
@@ -13,8 +14,9 @@ import {MatButtonModule, MatIconModule} from '@angular/material';
     BooksRoutingModule,
 
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ],
-  declarations: [BooksPageComponent, BooksListComponent]
+  declarations: [BooksPageComponent, BooksListComponent, BookDetailsComponent]
 })
 export class BooksModule { }
