@@ -20,3 +20,4 @@ import {RouterModule} from '@angular/router';
   exports: [CynNavComponent]
 })
 export class CoreModule { }
+
