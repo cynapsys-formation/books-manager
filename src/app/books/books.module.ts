@@ -7,6 +7,7 @@ import { BooksListComponent } from './books-list/books-list.component';
 
 import {MatButtonModule, MatCardModule, MatIconModule} from '@angular/material';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,9 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 
     MatButtonModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+
+    SharedModule
   ],
   declarations: [BooksPageComponent, BooksListComponent, BookDetailsComponent]
 })

@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'cyn-home',
@@ -17,9 +18,13 @@ import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@an
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  goToPage(page) {
+    this.router.navigate([page]);
   }
 
 }

@@ -8,9 +8,13 @@ import {Book} from '../book';
 })
 export class BookDetailsComponent implements OnInit {
   @Input() book: Book;
+  description: string;
+  date1 = '2018-05-27';
+
   constructor() { }
 
   ngOnInit() {
+    this.description = '<h1>Description</h1>';
   }
 
 }
