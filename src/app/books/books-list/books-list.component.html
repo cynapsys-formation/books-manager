@@ -1,0 +1,14 @@
+<ul>
+  <li *ngFor="let book of books; let i = index">
+
+    <span>{{ i + 1 }} - {{ book.title }}  - {{ book.year }}</span>
+    <button mat-icon-button (click)="onBookSelect(book)">
+      <mat-icon aria-label="icon-button with a icon">star</mat-icon>
+    </button>
+
+ <!--   <cyn-book-details [book]='book'></cyn-book-details> -->
+
+  </li>
+</ul>
+
+

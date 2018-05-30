@@ -1,15 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <cyn-nav>
-
-  <div>
-    <div style="text-align:center">
-      <h1>
-        Welcome to {{ title }}!
-      </h1>
-    </div>
+  <span cyn-title>{{ title }}</span>
+  <div cyn-body>
+    <h1>{{ title }}</h1>
     <router-outlet></router-outlet>
   </div>
-
 </cyn-nav>
 
 

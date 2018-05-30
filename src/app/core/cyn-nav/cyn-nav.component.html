@@ -23,10 +23,10 @@
         *ngIf="(isHandset | async)!.matches">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Application Title</span>
+      <ng-content select="[cyn-title]"></ng-content>
     </mat-toolbar>
     <div>
-      <ng-content></ng-content>
+      <ng-content select="[cyn-body]"></ng-content>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
