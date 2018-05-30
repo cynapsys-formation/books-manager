@@ -1,14 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
+<cyn-nav>
 
-<ul>
-  <li><a routerLink="/">Home</a></li>
-  <li><a routerLink="/about">About</a></li>
-  <li><a routerLink="/books">Books</a></li>
-</ul>
+  <div>
+    <div style="text-align:center">
+      <h1>
+        Welcome to {{ title }}!
+      </h1>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
 
-<router-outlet></router-outlet>
+</cyn-nav>
+
+
