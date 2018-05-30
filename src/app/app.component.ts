@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  total: any;
+  title = 'Books Manager';
+  private total: any;
 
   constructor() {
     console.log('AppComponent', this.calculator(1, 4));
