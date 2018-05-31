@@ -14,8 +14,8 @@ export class BooksService {
     this.urlApi = environment.urlApi;
   }
 
-  fetchAll() {
-    return this.http.get(`${this.urlApi}/books`); // this.urlApi + '/books'
+  fetchAll(): Observable<Array<Book>> {
+    return this.http.get(`${this.urlApi}/books`) as Observable<Array<Book>>; // this.urlApi + '/books'
   }
 
   add(model: Book) {

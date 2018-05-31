@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Book} from '../book';
 import {retry, retryWhen, take} from 'rxjs/operators';
-import {Observable, of} from 'rxjs';
+import {Observable, of, Subscription} from 'rxjs';
 import {BooksService} from '../books.service';
 
 @Component({
@@ -9,23 +9,39 @@ import {BooksService} from '../books.service';
   templateUrl: './books-page.component.html',
   styleUrls: ['./books-page.component.css']
 })
-export class BooksPageComponent implements OnInit {
+export class BooksPageComponent implements OnInit, OnDestroy {
   books: Array<Book>;
   books$: Observable<Array<Book>>;
   selectedBook: Book;
+  private subscription: Subscription;
 
   constructor(private booksService: BooksService) { }
 
   ngOnInit() {
-    this.loadData();
-    this.loadDataPromise();
-    this.loadDataObs();
+    // this.loadData();
+    // this.loadDataPromise();
+    // this.loadDataObs();
+    this.fetchAll();
   }
 
   onSelectedBookEvent($event) {
    // this.selectedBook = book;
     console.log($event);
     this.selectedBook = Object.assign({}, $event);
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
+
+  private fetchAll() {
+    this.subscription = this.booksService.fetchAll().subscribe((data: any) => {
+      this.books = data;
+    });
+
+    this.books$ = this.booksService.fetchAll();
   }
 
   private loadData() {
@@ -61,7 +77,7 @@ export class BooksPageComponent implements OnInit {
     });
   }
 
-  loadDataStatic(): Array<Book> {
+  private loadDataStatic(): Array<Book> {
     return this.booksService.loadDataStatic();
   }
 
