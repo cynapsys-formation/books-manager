@@ -4,13 +4,16 @@ import { MessageComponent } from './components/message/message.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { FromNowPipe } from './pipes/from-now.pipe';
 import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+
+    FormsModule
   ],
   declarations: [
     MessageComponent,

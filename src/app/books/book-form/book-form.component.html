@@ -1,0 +1,31 @@
+<p>
+  book-form works!
+</p>
+
+
+<form class="example-form" (ngSubmit)="save()" [formGroup]="bookForm">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Title" name="title" [formControl]="bookModelControl.title">
+    <mat-error *ngIf="bookModelControl.title.hasError('required')">
+      Please enter a valid title
+    </mat-error>
+    <mat-error *ngIf="bookModelControl.title.hasError('minLength')">
+      Min 3 car
+    </mat-error>
+  </mat-form-field>
+
+
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Year" name="year" [formControl]="bookModelControl.year">
+  </mat-form-field>
+
+  <button type="submit" mat-icon-button [disabled]="!bookForm.valid">
+    <mat-icon aria-label="icon-button with a icon">save</mat-icon>
+  </button>
+
+  <button type="reset" mat-icon-button>
+    <mat-icon aria-label="icon-button with a icon">refresh</mat-icon>
+  </button>
+
+</form>
