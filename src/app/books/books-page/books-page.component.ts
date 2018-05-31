@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Book} from '../book';
-import {retry, retryWhen, take,} from 'rxjs/operators';
+import {retry, retryWhen, take} from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
+import {BooksService} from '../books.service';
 
 @Component({
   selector: 'cyn-books-page',
@@ -13,31 +14,12 @@ export class BooksPageComponent implements OnInit {
   books$: Observable<Array<Book>>;
   selectedBook: Book;
 
-  constructor() { }
+  constructor(private booksService: BooksService) { }
 
   ngOnInit() {
     this.loadData();
-
-    // Promise
-    this.loadDataPromise().then((data) => {
-      console.log('loadDataPromise', data);
-      this.books = data;
-    }, (error) => {
-        console.log('error', error);
-    });
-
-    // Observable
-   this.loadDataObs().pipe(
-        retry(10)
-     ).subscribe((data) => {
-         console.log('loadDataObservable', data);
-         this.books = data;
-       }, (error) => {
-         console.log('error', error);
-       }, () => {
-         console.log('finally');
-       });
-
+    this.loadDataPromise();
+    this.loadDataObs();
   }
 
   onSelectedBookEvent($event) {
@@ -55,22 +37,32 @@ export class BooksPageComponent implements OnInit {
     );
   }
 
-  private loadDataStatic(): Array<Book> {
-    return [
-      { id: 121, title: 'Book 1', year: 2016},
-      { id: 232, title: 'Book 2', year: 2017},
-      { id: 33, title: 'Book 3', year: 2018},
-      { id: 43, title: 'Book 4', year: 2015},
-      { id: 534, title: 'Book 5', year: 2014}
-    ];
+  private loadDataObs() {
+    // Observable
+    this.booksService.loadDataObs().pipe(
+      retry(10)
+    ).subscribe((data) => {
+      console.log('loadDataObservable', data);
+      this.books = data;
+    }, (error) => {
+      console.log('error', error);
+    }, () => {
+      console.log('finally');
+    });
   }
 
-  private loadDataObs(): Observable<Array<Book>> {
-    return of(this.loadDataStatic());
+  private loadDataPromise() {
+    // Promise
+    this.booksService.loadDataPromise().then((data) => {
+      console.log('loadDataPromise', data);
+      this.books = data;
+    }, (error) => {
+      console.log('error', error);
+    });
   }
 
-  private loadDataPromise(): Promise<Array<Book>> {
-    return Promise.resolve(this.loadDataStatic());
+  loadDataStatic(): Array<Book> {
+    return this.booksService.loadDataStatic();
   }
 
 }
