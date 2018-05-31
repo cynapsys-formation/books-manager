@@ -7,6 +7,7 @@ import {CoreModule} from './core/core.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {OverlayModule} from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CoreModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
+    OverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent]

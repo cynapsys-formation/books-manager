@@ -30,6 +30,12 @@ export class BooksPageComponent implements OnInit, OnDestroy {
     this.selectedBook = Object.assign({}, $event);
   }
 
+  onDeleteBookEvent(event) {
+    this.booksService.remove(event.id).subscribe(() => {
+      this.fetchAll();
+    });
+  }
+
   ngOnDestroy(): void {
     if (this.subscription) {
       this.subscription.unsubscribe();

@@ -2,6 +2,8 @@
   books-page works!
 </p>
 
+<a routerLink="/books/new">New Book</a>
+
 <hr/>
 <pre> {{ books | json }}</pre>
 
@@ -19,6 +21,7 @@
 
 <cyn-books-list [books]="books$ | async"
                 (selectedBookEvent)="onSelectedBookEvent($event)"
+                (deleteBookEvent)="onDeleteBookEvent($event)"
 ></cyn-books-list>
 
 

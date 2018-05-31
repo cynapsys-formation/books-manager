@@ -1,3 +1,4 @@
+
 <mat-card *ngFor="let book of books; let i = index">
   <mat-card-header>
     <mat-card-title>Details</mat-card-title>
@@ -10,8 +11,23 @@
     <button mat-icon-button (click)="onBookSelect(book)">
       <mat-icon aria-label="icon-button with a icon">star</mat-icon>
     </button>
+    <button mat-icon-button (click)="onBookRemove(book.id)">
+      <mat-icon aria-label="icon-button with a icon">delete</mat-icon>
+    </button>
+    <button mat-icon-button (click)="onBookDetails(book.id)">
+      <mat-icon aria-label="icon-button with a icon">info</mat-icon>
+    </button>
+    <button mat-icon-button (click)="onBookEdit(book.id)">
+      <mat-icon aria-label="icon-button with a icon">info</mat-icon>
+    </button>
   </mat-card-actions>
 </mat-card>
+
+
+<!--
+<cyn-datatable *ngIf="books"></cyn-datatable>
+-->
+
 
 
 

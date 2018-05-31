@@ -30,8 +30,8 @@ export class BooksService {
     return this.http.delete(`${this.urlApi}/books/${id}`);
   }
 
-  fetchById(id: number) {
-    return this.http.get(`${this.urlApi}/books/${id}`);
+  fetchById(id: number): Observable<Book> {
+    return this.http.get(`${this.urlApi}/books/${id}`) as Observable<Book>;
   }
 
   save(model: Book, id?: number) {

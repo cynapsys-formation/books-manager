@@ -4,6 +4,7 @@ import {Component,
   OnChanges,
   OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Book} from '../book';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -14,8 +15,9 @@ import {Book} from '../book';
 export class BooksListComponent implements OnInit, OnChanges, OnDestroy {
   @Input() books: Array<Book>;
   @Output() selectedBookEvent: EventEmitter<Book> = new EventEmitter();
+  @Output() deleteBookEvent: EventEmitter<{ id }> = new EventEmitter();
 
-  constructor() {
+  constructor(private route: Router) {
     console.log('constructor');
   }
 
@@ -30,6 +32,18 @@ export class BooksListComponent implements OnInit, OnChanges, OnDestroy {
   onBookSelect(book) {
     console.log('onBookSelect:', book);
     this.selectedBookEvent.emit(book);
+  }
+
+  onBookRemove(id) {
+    this.deleteBookEvent.emit({ id });
+  }
+
+  onBookDetails(id) {
+    this.route.navigate(['/books/details', id]);
+  }
+
+  onBookEdit(id) {
+    this.route.navigate(['/books/edit', id]);
   }
 
   ngOnDestroy(): void {
