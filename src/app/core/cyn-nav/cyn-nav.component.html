@@ -12,6 +12,11 @@
       <a mat-list-item routerLink="/about">About</a>
       <a mat-list-item routerLink="/books">Books</a>
     </mat-nav-list>
+
+
+    <button (click)="addMessage('Hello from Nav')">addMessage</button>
+    <span>{{ message }}</span>
+
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">

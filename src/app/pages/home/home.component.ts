@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
+import {SharedService} from '../../shared/services/shared.service';
 
 @Component({
   selector: 'cyn-home',
@@ -17,14 +18,25 @@ import {Router} from '@angular/router';
  // encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
+  message: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private sharedService: SharedService) {
+
+    this.sharedService.getMessage().subscribe(data => this.message = data);
+
+  }
 
   ngOnInit() {
   }
 
   goToPage(page) {
     this.router.navigate([page]);
+  }
+
+  addMessage(message) {
+    // this.message = message;
+    this.sharedService.addMessage(message);
   }
 
 }
