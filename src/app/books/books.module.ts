@@ -16,6 +16,7 @@ import { BookFormComponent } from './book-form/book-form.component';
 import { BooksDetailsPageComponent } from './books-details-page/books-details-page.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BooksSavePageComponent } from './books-save-page/books-save-page.component';
+import {BooksResolver} from './books.resolver';
 
 @NgModule({
   imports: [
@@ -41,7 +42,7 @@ import { BooksSavePageComponent } from './books-save-page/books-save-page.compon
     BooksDetailsPageComponent,
     BooksSavePageComponent],
   providers: [
-    BooksService
+    BooksService, BooksResolver
   ]
 })
 export class BooksModule { }

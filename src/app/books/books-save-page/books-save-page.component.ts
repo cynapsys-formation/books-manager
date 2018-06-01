@@ -9,13 +9,15 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./books-save-page.component.css']
 })
 export class BooksSavePageComponent implements OnInit {
-  book: Book = new Book();
+  book: Book;
 
   constructor(private activatedRoute: ActivatedRoute,
               private booksService: BooksService) { }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params => this.fetchById(+params['id']));
+     this.activatedRoute.params.subscribe(params => this.fetchById(+params['id']));
+   // this.book = this.activatedRoute.snapshot.data['bookResolveData'];
+     this.activatedRoute.data.subscribe(params => this.book =  params.bookResolveData);
   }
 
   onSave(event) {
@@ -26,7 +28,7 @@ export class BooksSavePageComponent implements OnInit {
     }
   }
 
-  fetchById(id: number) {
+  private fetchById(id: number) {
     this.booksService.fetchById(id).subscribe(data => {
       this.book = data;
     });

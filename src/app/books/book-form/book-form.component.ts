@@ -19,16 +19,13 @@ export class BookFormComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.book.currentValue) {
-      console.log(this.book);
-
-      if (this.book.title) {
+      if (this.book && this.book.title) {
         this.bookForm.patchValue({title: this.book.title});
       }
-      if (this.book.year) {
+      if (this.book && this.book.year) {
         this.bookForm.patchValue({year: this.book.year});
       }
     }
-
   }
 
   ngOnInit() {
@@ -40,8 +37,6 @@ export class BookFormComponent implements OnInit, OnChanges {
   }
 
   save() {
-    // console.log(this.book);
-    console.log(this.bookForm.value);
     this.book.title  = this.bookForm.value.title;
     this.book.year  = +this.bookForm.value.year;
     this.saveEvent.emit(this.book);

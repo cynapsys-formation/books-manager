@@ -15,12 +15,16 @@ export class BooksDetailsPageComponent implements OnInit {
               private booksService: BooksService) { }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params => this.fetchById(+params['id']));
+   // this.activatedRoute.params.subscribe(params => this.fetchById(+params['id']));
+    this.book = this.activatedRoute.snapshot.data['bookResolveData'];
+    // this.activatedRoute.data.subscribe(data => this.book = data['bookResolveData']);
   }
 
-  fetchById(id: number) {
+  /*
+  private fetchById(id: number) {
     this.booksService.fetchById(id).subscribe(data => {
       this.book = data;
     });
   }
+  */
 }

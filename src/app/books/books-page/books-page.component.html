@@ -1,12 +1,6 @@
-<p>
-  books-page works!
-</p>
-
 <a routerLink="/books/new">New Book</a>
 
 <hr/>
-<pre> {{ books | json }}</pre>
-
 
 <mat-card *ngIf="selectedBook">
   <mat-card-header>
@@ -23,6 +17,12 @@
                 (selectedBookEvent)="onSelectedBookEvent($event)"
                 (deleteBookEvent)="onDeleteBookEvent($event)"
 ></cyn-books-list>
+
+
+<hr/>
+
+<pre> {{ books | json }}</pre>
+
 
 
 

@@ -1,6 +1,7 @@
-<p>
-  books-save-page works!
-</p>
 
-<cyn-book-form [book]="book" (saveEvent)="onSave($event)"></cyn-book-form>
+<pre>{{ book | json }}</pre>
+<div *ngIf="book">
+  <cyn-book-form [book]="book" (saveEvent)="onSave($event)"></cyn-book-form>
+</div>
+
 
