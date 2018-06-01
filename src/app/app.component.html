@@ -4,6 +4,8 @@
   <span cyn-title>{{ title }}</span>
   <div cyn-body class="cyn-content">
     <h1>{{ title }}</h1>
+    <button mat-button (click)="changeLanguage('fr')">Fr</button>
+    <button mat-button (click)="changeLanguage('en')">En</button>
     <router-outlet></router-outlet>
   </div>
 </cyn-nav>
