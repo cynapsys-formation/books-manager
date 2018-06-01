@@ -3,4 +3,3 @@ export class Book {
   title: string;
   year?: number;
 }
-

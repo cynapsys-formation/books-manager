@@ -35,12 +35,15 @@ import {BooksResolver} from './books.resolver';
     SharedModule,
 
   ],
-  declarations: [BooksPageComponent, BooksListComponent,
+  declarations: [
+    BooksPageComponent,
+    BooksListComponent,
     DatatableComponent,
     BookDetailsComponent,
     BookFormComponent,
     BooksDetailsPageComponent,
-    BooksSavePageComponent],
+    BooksSavePageComponent
+  ],
   providers: [
     BooksService, BooksResolver
   ]

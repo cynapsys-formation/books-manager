@@ -25,11 +25,14 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [
     BrowserModule,
     AppRoutingModule,
+
     HttpClientModule,
     CoreModule,
+
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
     OverlayModule,
+
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
